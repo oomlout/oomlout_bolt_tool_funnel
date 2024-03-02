@@ -97,7 +97,7 @@ def make_scad(**kwargs):
     funnel["funnel_flare"] = 60
     funnel["funnel_height"] = 25
     funnel["funnel_height_bottom_tube"] = 25
-    funnel["funnel_wall_thickness"] = 1
+    funnel["funnel_wall_thickness"] = 0.5
     funnel["funnel_type"] = "rounded_rectangle"  
     funnels.append(funnel)
     #load those values 
