@@ -7,10 +7,10 @@ difference() {
 			rotate(a = [0, 0, 0]) {
 				difference() {
 					union() {
-						cylinder(h = 30, r1 = 35.0000000000, r2 = 15.0000000000);
+						cylinder(h = 30, r1 = 77.5000000000, r2 = 22.5000000000);
 					}
 					union() {
-						cylinder(h = 30, r1 = 34.0000000000, r2 = 14.0000000000);
+						cylinder(h = 30, r1 = 76.5000000000, r2 = 21.5000000000);
 					}
 				}
 			}
@@ -19,10 +19,10 @@ difference() {
 			rotate(a = [0, 0, 0]) {
 				difference() {
 					union() {
-						cylinder(h = 10, r = 15.0000000000);
+						cylinder(h = 45, r = 22.5000000000);
 					}
 					union() {
-						cylinder(h = 10, r = 14.0000000000);
+						cylinder(h = 45, r = 21.5000000000);
 					}
 				}
 			}

@@ -3,6 +3,9 @@ import oom_markdown
 import os
 import copy
 
+import opsc
+import oobb 
+import oobb_base
 #process
 #  locations set in working_parts.ods 
 #  export to working_parts.csv
@@ -22,12 +25,10 @@ def make_readme(**kwargs):
     #oom_markdown.generate_readme_teardown(**kwargs)
     
 def make_scad(**kwargs):
-    import opsc
-    import oobb 
-    import oobb_base
 
-    kwargs["save_type"] = "none"
+    #kwargs["save_type"] = "none"    
     kwargs["save_type"] = "all"
+
     #kwargs["save_type"] = "3dpr"
     
     #kwargs["modes"] = ["3dpr","laser","true"]
@@ -44,46 +45,64 @@ def make_scad(**kwargs):
     funnels = []
 
     funnel = {}
-    funnel["funnel_top_radius"] = 70/2
     funnel["funnel_bottom_radius"] = 30/2
+    funnel["funnel_flare"] = 40
     funnel["funnel_height"] = 30
     funnel["funnel_height_bottom_tube"] = 10
     funnel["funnel_wall_thickness"] = 1
-    funnel["funnel_extra"] = f"{funnel['funnel_top_radius']*2}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"    
+      
     funnels.append(funnel)
     
     funnel = {}
-    funnel["funnel_top_radius"] = 70/2
     funnel["funnel_bottom_radius"] = 30/2
+    funnel["funnel_flare"] = 40
     funnel["funnel_height"] = 30
     funnel["funnel_height_bottom_tube"] = 10
-    funnel["funnel_wall_thickness"] = 1
-    funnel["funnel_extra"] = f"{funnel['funnel_top_radius']*2}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"    
+    funnel["funnel_wall_thickness"] = 1       
     funnels.append(funnel)
 
     
     funnel = {}
-    funnel["funnel_top_radius"] = 100/2
     funnel["funnel_bottom_radius"] = 30/2
+    funnel["funnel_flare"] = 70
     funnel["funnel_height"] = 50
     funnel["funnel_height_bottom_tube"] = 20
     funnel["funnel_wall_thickness"] = 1
-    funnel["funnel_extra"] = f"{funnel['funnel_top_radius']*2}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"    
     funnels.append(funnel)
     #load those values 
 
     funnel = {}
-    funnel["funnel_top_radius"] = 100/2
     funnel["funnel_bottom_radius"] = 45/2
+    funnel["funnel_flare"] = 55
     funnel["funnel_height"] = 30
     funnel["funnel_height_bottom_tube"] = 45
     funnel["funnel_wall_thickness"] = 1
-    funnel["funnel_extra"] = f"{funnel['funnel_top_radius']*2}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"    
+    funnels.append(funnel)
+    #load those values 
+
+    
+    funnel = {}
+    funnel["funnel_bottom_width"] = 40   
+    funnel["funnel_bottom_length"] = 40 
+    funnel["funnel_flare"] = 60
+    funnel["funnel_height"] = 25
+    funnel["funnel_height_bottom_tube"] = 25
+    funnel["funnel_wall_thickness"] = 1
+    funnel["funnel_type"] = "rounded_rectangle"    
     funnels.append(funnel)
     #load those values 
 
     for funnel in funnels:
+        funnel_type = funnel.get("funnel_type", "circle")
 
+        if funnel_type == "circle":
+            get_funnel_circle(funnel, **kwargs)
+
+        if funnel_type == "rounded_rectangle":
+            pass
+            get_funnel_rounded_rectangle(funnel, **kwargs)
+
+def get_funnel_circle(funnel, **kwargs):
     # default sets
         width = kwargs.get("width", 3)
         height = kwargs.get("height", 5)
@@ -97,13 +116,13 @@ def make_scad(**kwargs):
         
             
 
-
-        funnel_top_radius = funnel["funnel_top_radius"]
-        funnel_bottom_radius = funnel["funnel_bottom_radius"]
+        funnel_bottom_radius = funnel["funnel_bottom_radius"]        
+        funnel_flare = funnel["funnel_flare"]
+        funnel_top_radius = funnel_bottom_radius + funnel_flare
         funnel_height = funnel["funnel_height"]
         funnel_height_bottom_tube = funnel["funnel_height_bottom_tube"]
         funnel_wall_thickness = funnel["funnel_wall_thickness"]
-        funnel_extra = funnel["funnel_extra"]
+        funnel_extra = f"circle_{funnel_top_radius}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"  
         kwargs["extra"] = funnel_extra
 
         # get the default thing
@@ -136,6 +155,91 @@ def make_scad(**kwargs):
         p3["pos"] = pos1 
         #p3["m"] = ""
         p3.pop("size","")
+        oobb_base.append_full(thing,**p3)
+
+
+
+        ######  save stuff    
+            
+        save_type = kwargs.get("save_type", "all")
+        overwrite = True
+        modes = kwargs.get("modes", ["3dpr","laser","true"])
+        for mode in modes:
+            depth = thing.get(
+                "depth_mm", thing.get("thickness_mm", 3))
+            height = thing.get("height_mm", 100)
+            layers = depth / 3
+            tilediff = height + 10
+            start = 1.5
+            if layers != 1:
+                start = 1.5 - (layers / 2)*3
+            if "bunting" in thing:
+                start = 0.5
+            opsc.opsc_make_object(f'scad_output/{thing["id"]}/{mode}.scad', thing["components"], mode=mode, save_type=save_type, overwrite=overwrite, layers=layers, tilediff=tilediff, start=start)
+        
+def get_funnel_rounded_rectangle(funnel, **kwargs):
+    # default sets
+        width = kwargs.get("width", 3)
+        height = kwargs.get("height", 5)
+        thickness = kwargs.get("thickness", 3)
+        size = kwargs.get("size", "oobb")
+        pos = kwargs.get("pos", [0, 0, 0])
+        # extra sets
+        holes = kwargs.get("holes", True)
+        both_holes = kwargs.get("both_holes", True)    
+        kwargs["pos"] = pos
+        
+            
+
+
+        funnel_bottom_width = funnel["funnel_bottom_width"]
+        funnel_bottom_length = funnel["funnel_bottom_length"]
+        funnel_flare = funnel["funnel_flare"]
+        funnel_top_width = funnel_bottom_width + funnel_flare
+        funnel_top_length = funnel_bottom_length + funnel_flare
+
+
+        funnel_height = funnel["funnel_height"]
+        funnel_height_bottom_tube = funnel["funnel_height_bottom_tube"]
+        funnel_wall_thickness = funnel["funnel_wall_thickness"]
+        funnel_extra = f"rounded_rectangle_{funnel_top_width}_mm_top_{funnel_bottom_width}_mm_bottom_{funnel_top_length}_mm_length_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"
+        kwargs["extra"] = funnel_extra
+
+        # get the default thing
+        thing = oobb_base.get_default_thing(**kwargs)
+        th = thing["components"]
+        #kwargs.pop("size","")
+
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "p"   
+        p3["shape"] = f"oobb_rounded_rectangle_hollow"
+        difference = funnel_top_width - funnel_bottom_width
+        w = funnel_top_width - difference
+        h = funnel_top_length- difference
+        d = funnel_height
+        size = [w,h,d]
+        p3["size"] = size
+        p3["r2"] = 5
+        p3["r1"] = difference/2
+        p3["wall_thickness"] = funnel_wall_thickness
+        p3["pos"] = pos
+        oobb_base.append_full(thing,**p3)      
+        #th.append(oobb_base.oobb_easy(**p3))
+        
+        # add bottom tube
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "p"
+        p3["shape"] = f"oobb_rounded_rectangle_hollow"
+        w = funnel_bottom_width
+        h = funnel_bottom_length
+        d = funnel_height_bottom_tube
+        size = [w,h,d]
+        p3["size"] = size
+        p3["wall_thickness"] = funnel_wall_thickness
+        
+        pos1 = copy.deepcopy(pos)
+        pos1[2] = pos1[2] + funnel_height
+        p3["pos"] = pos1 
         oobb_base.append_full(thing,**p3)
 
 
