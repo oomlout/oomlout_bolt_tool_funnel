@@ -80,17 +80,6 @@ def make_scad(**kwargs):
     funnels.append(funnel)
     #load those values 
 
-    
-    funnel = {}
-    funnel["funnel_bottom_width"] = 40   
-    funnel["funnel_bottom_length"] = 40 
-    funnel["funnel_flare"] = 60
-    funnel["funnel_height"] = 25
-    funnel["funnel_height_bottom_tube"] = 25
-    funnel["funnel_wall_thickness"] = 1
-    funnel["funnel_type"] = "rounded_rectangle"    
-    funnels.append(funnel)
-
     funnel = {}
     funnel["funnel_bottom_width"] = 125   
     funnel["funnel_bottom_length"] = 75 
@@ -101,6 +90,27 @@ def make_scad(**kwargs):
     funnel["funnel_type"] = "rounded_rectangle"  
     funnels.append(funnel)
     #load those values 
+
+    #oobb sized ones
+    funnels_oobb = []
+    funnels_oobb.append([3,3])
+    funnels_oobb.append([2,2.5])
+    funnels_oobb.append([4,2.5])
+
+
+
+    for funnel_oobb in funnels_oobb:
+        funnel = {}
+        funnel["funnel_bottom_width"] = funnel_oobb[0] * 15 - 5   
+        funnel["funnel_bottom_length"] = funnel_oobb[1] * 15 - 5
+        funnel["funnel_flare"] = 60
+        funnel["funnel_height"] = 25
+        funnel["funnel_height_bottom_tube"] = 25
+        funnel["funnel_wall_thickness"] = 1
+        funnel["funnel_type"] = "rounded_rectangle"    
+        funnel["funnel_extra"] = f"oobb_funnel_{funnel_oobb[0]}_width_{funnel_oobb[1]}_height"
+        funnels.append(funnel)
+
 
     for funnel in funnels:
         funnel_type = funnel.get("funnel_type", "circle")
@@ -194,6 +204,7 @@ def get_funnel_rounded_rectangle(funnel, **kwargs):
         thickness = kwargs.get("thickness", 3)
         size = kwargs.get("size", "oobb")
         pos = kwargs.get("pos", [0, 0, 0])
+        extra = funnel.get("funnel_extra", "")
         # extra sets
         holes = kwargs.get("holes", True)
         both_holes = kwargs.get("both_holes", True)    
@@ -212,7 +223,10 @@ def get_funnel_rounded_rectangle(funnel, **kwargs):
         funnel_height = funnel["funnel_height"]
         funnel_height_bottom_tube = funnel["funnel_height_bottom_tube"]
         funnel_wall_thickness = funnel["funnel_wall_thickness"]
-        funnel_extra = f"rounded_rectangle_{funnel_top_width}_mm_top_{funnel_bottom_width}_mm_bottom_{funnel_top_length}_mm_length_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"
+        if extra == "":
+            funnel_extra = f"rounded_rectangle_{funnel_top_width}_mm_top_{funnel_bottom_width}_mm_bottom_{funnel_top_length}_mm_length_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"
+        else:
+            funnel_extra = extra
         kwargs["extra"] = funnel_extra
 
         # get the default thing
