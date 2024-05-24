@@ -23,24 +23,8 @@ def make_readme(**kwargs):
     os.system("generate_resolution.bat")
     oom_markdown.generate_readme_project(**kwargs)
     #oom_markdown.generate_readme_teardown(**kwargs)
-    
-def make_scad(**kwargs):
 
-    #kwargs["save_type"] = "none"    
-    kwargs["save_type"] = "all"
-
-    #kwargs["save_type"] = "3dpr"
-    
-    #kwargs["modes"] = ["3dpr","laser","true"]
-    kwargs["modes"] = ["3dpr"]
-    
-    kwargs["size"] = "oobb"
-    kwargs["type"] = "oomlout_bolt_tool_funnel"
-    kwargs["width"] = 1
-    kwargs["height"] = 1
-    kwargs["thickness"] = 1
-
-   
+def get_funnels_verbose():
     # funnel sizes
     funnels = []
 
@@ -62,6 +46,27 @@ def make_scad(**kwargs):
     funnels.append(funnel)
 
     
+    #for emptying toner catridges
+    funnel = {}
+    funnel["funnel_bottom_radius"] = 50/2
+    funnel["funnel_flare"] = 175/2
+    funnel["funnel_height"] = 75
+    funnel["funnel_height_bottom_tube"] = 20
+    funnel["funnel_wall_thickness"] = 2
+    funnel["funnel_extra"] = "toner_cartridge_funnel"
+    funnels.append(funnel)
+
+    #toner cartridge to smaller bottle
+    funnel = {}
+    funnel["funnel_bottom_radius"] = 15/2
+    funnel["funnel_flare"] = 40/2
+    funnel["funnel_height"] = 20
+    funnel["funnel_height_bottom_tube"] = 15
+    funnel["funnel_wall_thickness"] = 2
+    funnel["funnel_extra"] = "toner_cartridge_funnel_small_bottle"
+    funnels.append(funnel)
+    
+
     funnel = {}
     funnel["funnel_bottom_radius"] = 30/2
     funnel["funnel_flare"] = 70
@@ -93,6 +98,17 @@ def make_scad(**kwargs):
     funnels.append(funnel)
     #load those values 
 
+    #for emptying toner catridges
+    funnel = {}
+    funnel["funnel_bottom_width"] = 125   
+    funnel["funnel_bottom_length"] = 75 
+    funnel["funnel_flare"] = 100
+    funnel["funnel_height"] = 50
+    funnel["funnel_height_bottom_tube"] = 70
+    funnel["funnel_wall_thickness"] = 1.5
+    funnel["funnel_type"] = "rounded_rectangle"  
+    funnels.append(funnel)
+
     #cereal
     funnel = {}
     funnel["funnel_bottom_width"] = 100   
@@ -111,6 +127,8 @@ def make_scad(**kwargs):
     funnels_oobb.append([3,3])
     funnels_oobb.append([2,2.5])
     funnels_oobb.append([4,2.5])
+    funnels_oobb.append([3,2.5])
+    funnels_oobb.append([5,2.5])
 
 
 
@@ -125,6 +143,50 @@ def make_scad(**kwargs):
         funnel["funnel_type"] = "rounded_rectangle"    
         funnel["funnel_extra"] = f"oobb_funnel_{funnel_oobb[0]}_width_{funnel_oobb[1]}_height"
         funnels.append(funnel)
+    
+    return funnels
+
+def make_scad(**kwargs):
+
+    #kwargs["save_type"] = "none"    
+    kwargs["save_type"] = "all"
+
+    #kwargs["save_type"] = "3dpr"
+    
+    #kwargs["modes"] = ["3dpr","laser","true"]
+    kwargs["modes"] = ["3dpr"]
+    
+    kwargs["size"] = "oobb"
+    kwargs["type"] = "oomlout_bolt_tool_funnel"
+    kwargs["width"] = 1
+    kwargs["height"] = 1
+    kwargs["thickness"] = 1
+
+   
+    
+
+    #save funnels to yaml/funnels.yaml
+    import yaml
+    
+    from_yaml_file = True
+    dump_to_yaml_file = False
+    file_yaml = "yaml/funnels.yaml"
+    if from_yaml_file:
+        print("loading from yaml")
+        with open(file_yaml, "r") as f:
+            funnels = yaml.load(f, Loader=yaml.FullLoader)
+    else:
+        print("loading from verbose")
+        funnels = get_funnels_verbose()
+
+
+    if dump_to_yaml_file:
+        print("dumping to yaml")
+        os.makedirs("yaml", exist_ok=True)
+        with open(file_yaml, "w") as f:
+            yaml.dump(funnels, f)
+
+
 
 
     for funnel in funnels:
@@ -144,6 +206,7 @@ def get_funnel_circle(funnel, **kwargs):
         thickness = kwargs.get("thickness", 3)
         size = kwargs.get("size", "oobb")
         pos = kwargs.get("pos", [0, 0, 0])
+        extra = funnel.get("funnel_extra", "")
         # extra sets
         holes = kwargs.get("holes", True)
         both_holes = kwargs.get("both_holes", True)    
@@ -158,6 +221,12 @@ def get_funnel_circle(funnel, **kwargs):
         funnel_height_bottom_tube = funnel["funnel_height_bottom_tube"]
         funnel_wall_thickness = funnel["funnel_wall_thickness"]
         funnel_extra = f"circle_{funnel_top_radius}_mm_top_{funnel['funnel_bottom_radius']*2}_mm_bottom_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"  
+        if extra == "":
+            funnel_extra = f"rounded_rectangle_{funnel_top_radius * 2}_mm_top_{funnel_bottom_radius*2}_mm_bottom_{funnel_height}_mm_length_{funnel['funnel_height']}_mm_height_{funnel['funnel_height_bottom_tube']}_mm_bottom_tube_{funnel['funnel_wall_thickness']}_mm_wall"
+        else:
+            funnel_extra = extra
+
+        extra = funnel_extra
         kwargs["extra"] = funnel_extra
 
         # get the default thing
