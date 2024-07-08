@@ -56,6 +56,16 @@ def get_funnels_verbose():
     funnel["funnel_extra"] = "toner_cartridge_funnel"
     funnels.append(funnel)
 
+    
+    funnel = {}
+    funnel["funnel_bottom_radius"] = 75/2
+    funnel["funnel_flare"] = 145/2
+    funnel["funnel_height"] = 75
+    funnel["funnel_height_bottom_tube"] = 20
+    funnel["funnel_wall_thickness"] = 2
+    funnel["funnel_extra"] = "toner_cartridge_jar_fill_funnel"
+    funnels.append(funnel)
+
     #toner cartridge to smaller bottle
     funnel = {}
     funnel["funnel_bottom_radius"] = 15/2

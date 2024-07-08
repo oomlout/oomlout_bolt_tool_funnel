@@ -14,6 +14,12 @@
   funnel_height: 75
   funnel_height_bottom_tube: 20
   funnel_wall_thickness: 2
+- funnel_bottom_radius: 37.5
+  funnel_extra: toner_cartridge_jar_fill_funnel
+  funnel_flare: 72.5
+  funnel_height: 75
+  funnel_height_bottom_tube: 20
+  funnel_wall_thickness: 2
 - funnel_bottom_radius: 7.5
   funnel_extra: toner_cartridge_funnel_small_bottle
   funnel_flare: 20.0
