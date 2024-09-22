@@ -1,3 +1,9 @@
+- funnel_bottom_radius: 42.5
+  funnel_extra: packaging_takeaway_container_circle_670_ml_105_mm_diameter_100_mm_height_tamper_evident_systempak_254
+  funnel_flare: 30
+  funnel_height: 30
+  funnel_height_bottom_tube: 20
+  funnel_wall_thickness: 2
 - funnel_bottom_radius: 15.0
   funnel_flare: 40
   funnel_height: 30
