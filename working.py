@@ -28,6 +28,17 @@ def get_funnels_verbose():
     # funnel sizes
     funnels = []
 
+
+     #toner cartridge to smaller bottle
+    funnel = {}
+    funnel["funnel_bottom_radius"] = 90/2
+    funnel["funnel_flare"] = 80/2
+    funnel["funnel_height"] = 30
+    funnel["funnel_height_bottom_tube"] = 20
+    funnel["funnel_wall_thickness"] = 3
+    funnel["funnel_extra"] = "packaging_takeaway_container_circle_670_ml_105_mm_diameter_135_mm_depth_tamper_evident_systempak_254"
+    funnels.append(funnel)
+
     funnel = {}
     funnel["funnel_bottom_radius"] = 30/2
     funnel["funnel_flare"] = 40
