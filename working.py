@@ -37,7 +37,7 @@ def get_funnels_verbose():
     funnel["funnel_height_bottom_tube"] = 20
     funnel["funnel_wall_thickness"] = 3
     funnel["funnel_extra"] = "packaging_takeaway_container_circle_670_ml_105_mm_diameter_135_mm_depth_tamper_evident_systempak_254"
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
 
     funnel = {}
     funnel["funnel_bottom_radius"] = 30/2
@@ -46,7 +46,7 @@ def get_funnels_verbose():
     funnel["funnel_height_bottom_tube"] = 10
     funnel["funnel_wall_thickness"] = 1
       
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
     
     funnel = {}
     funnel["funnel_bottom_radius"] = 30/2
@@ -54,7 +54,7 @@ def get_funnels_verbose():
     funnel["funnel_height"] = 30
     funnel["funnel_height_bottom_tube"] = 10
     funnel["funnel_wall_thickness"] = 1       
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
 
     
     #for emptying toner catridges
@@ -65,7 +65,7 @@ def get_funnels_verbose():
     funnel["funnel_height_bottom_tube"] = 20
     funnel["funnel_wall_thickness"] = 2
     funnel["funnel_extra"] = "toner_cartridge_funnel"
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
 
     
     funnel = {}
@@ -75,7 +75,7 @@ def get_funnels_verbose():
     funnel["funnel_height_bottom_tube"] = 20
     funnel["funnel_wall_thickness"] = 2
     funnel["funnel_extra"] = "toner_cartridge_jar_fill_funnel"
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
 
     #toner cartridge to smaller bottle
     funnel = {}
@@ -85,8 +85,17 @@ def get_funnels_verbose():
     funnel["funnel_height_bottom_tube"] = 15
     funnel["funnel_wall_thickness"] = 2
     funnel["funnel_extra"] = "toner_cartridge_funnel_small_bottle"
-    funnels.append(funnel)
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
     
+    #printer_inkjet_nozzle_unclog_fluid
+    funnel = {}
+    funnel["funnel_bottom_radius"] = 11/2
+    funnel["funnel_flare"] = 30/2
+    funnel["funnel_height"] = 20
+    funnel["funnel_height_bottom_tube"] = 20
+    funnel["funnel_wall_thickness"] = 2
+    funnel["funnel_extra"] = "printer_inkjet_nozzle_unclog_fluid"
+    funnels.append(copy.deepcopy(funnel))  # add a copy for the next one
 
     funnel = {}
     funnel["funnel_bottom_radius"] = 30/2
@@ -189,7 +198,7 @@ def make_scad(**kwargs):
     #save funnels to yaml/funnels.yaml
     import yaml
     
-    from_yaml_file = True
+    from_yaml_file = False
     dump_to_yaml_file = False
     file_yaml = "yaml/funnels.yaml"
     if from_yaml_file:
@@ -287,7 +296,8 @@ def get_funnel_circle(funnel, **kwargs):
         ######  save stuff    
             
         save_type = kwargs.get("save_type", "all")
-        overwrite = True
+        overwrite = kwargs.get("overwrite", True)
+        
         modes = kwargs.get("modes", ["3dpr","laser","true"])
         for mode in modes:
             depth = thing.get(
