@@ -1,0 +1,47 @@
+classification: project
+color: oomlout_bolt_tool_funnel
+description_extra: 55_flare_22.5_b_rad_30_h_1_wt_45_hbt_extra
+description_main: funnel_circle_0_width_0_height_3_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_55_flare_22_5_b_rad_30_h_1_wt_45_hbt_extra
+id_oobb: oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_55_flare_22d5_b_rad_30_h_1_wt_45_hbt_extra
+kwargs:
+  extra: 55_flare_22.5_b_rad_30_h_1_wt_45_hbt
+  filter: ''
+  funnel_bottom_radius: 22.5
+  funnel_flare: 55
+  funnel_height: 30
+  funnel_height_bottom_tube: 45
+  funnel_wall_thickness: 1
+  height: 0
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_bolt_tool_funnel
+  oomp_description_extra: 55_flare_22.5_b_rad_30_h_1_wt_45_hbt_extra
+  oomp_description_main: funnel_circle_0_width_0_height_3_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 3
+  typ: all
+  type: oomlout_bolt_tool_funnel_funnel_circle
+  width: 0
+manufacturer: ''
+name: funnel_circle
+part_number: ''
+project_name: C:\gh\oomlout_bolt_tool_funnel
+size: oomlout
+type: github

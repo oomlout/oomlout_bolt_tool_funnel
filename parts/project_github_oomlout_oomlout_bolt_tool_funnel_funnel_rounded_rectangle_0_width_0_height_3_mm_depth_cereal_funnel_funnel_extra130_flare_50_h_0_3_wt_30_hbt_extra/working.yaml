@@ -1,0 +1,50 @@
+classification: project
+color: oomlout_bolt_tool_funnel
+description_extra: cereal_funnel_funnel_extra130_flare_50_h_0.3_wt_30_hbt_extra
+description_main: funnel_rounded_rectangle_0_width_0_height_3_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_bolt_tool_funnel_funnel_rounded_rectangle_0_width_0_height_3_mm_depth_cereal_funnel_funnel_extra130_flare_50_h_0_3_wt_30_hbt_extra
+id_oobb: oobb_part_oomlout_bolt_tool_funnel_funnel_rounded_rectangle_0_width_0_height_3_mm_depth_cereal_funnel_funnel_extra130_flare_50_h_0d3_wt_30_hbt_extra
+kwargs:
+  extra: cereal_funnel_funnel_extra130_flare_50_h_0.3_wt_30_hbt
+  filter: ''
+  funnel_bottom_length: 55
+  funnel_bottom_width: 100
+  funnel_extra: cereal_funnel
+  funnel_flare: 130
+  funnel_height: 50
+  funnel_height_bottom_tube: 30
+  funnel_type: funnel_rounded_rectangle
+  funnel_wall_thickness: 0.3
+  height: 0
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_bolt_tool_funnel
+  oomp_description_extra: cereal_funnel_funnel_extra130_flare_50_h_0.3_wt_30_hbt_extra
+  oomp_description_main: funnel_rounded_rectangle_0_width_0_height_3_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 3
+  typ: all
+  type: oomlout_bolt_tool_funnel_funnel_rounded_rectangle
+  width: 0
+manufacturer: ''
+name: funnel_rounded_rectangle
+part_number: ''
+project_name: C:\gh\oomlout_bolt_tool_funnel
+size: oomlout
+type: github

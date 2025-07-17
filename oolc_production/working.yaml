@@ -1,6 +1,0 @@
-project_id: oomlout_bolt_tool_funnel
-project_name: Oomlout Bolt Tool Funnel
-project_repo: https://github.com/oomlout/oomlout_bolt_tool_funnel
-production_format:
-  oolc_1:
-    file_location: source_files/oolc_1.cdr

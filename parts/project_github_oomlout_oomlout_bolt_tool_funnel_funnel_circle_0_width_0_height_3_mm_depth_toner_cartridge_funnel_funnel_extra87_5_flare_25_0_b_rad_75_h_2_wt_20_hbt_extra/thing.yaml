@@ -1,0 +1,223 @@
+classification: project
+color: oomlout_bolt_tool_funnel
+description_extra: toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt_extra
+description_main: funnel_circle_0_width_0_height_3_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_toner_cartridge_funnel_funnel_extra87_5_flare_25_0_b_rad_75_h_2_wt_20_hbt_extra
+id_oobb: oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_toner_cartridge_funnel_funnel_extra87d5_flare_25_b_rad_75_h_2_wt_20_hbt_extra
+kwargs:
+  extra: toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt
+  filter: ''
+  funnel_bottom_radius: 25.0
+  funnel_extra: toner_cartridge_funnel
+  funnel_flare: 87.5
+  funnel_height: 75
+  funnel_height_bottom_tube: 20
+  funnel_wall_thickness: 2
+  height: 0
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_bolt_tool_funnel
+  oomp_description_extra: toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt_extra
+  oomp_description_main: funnel_circle_0_width_0_height_3_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 3
+  typ: all
+  type: oomlout_bolt_tool_funnel_funnel_circle
+  width: 0
+manufacturer: ''
+name: funnel_circle
+part_number: ''
+project_name: C:\gh\oomlout_bolt_tool_funnel
+size: oomlout
+thing:
+  classification: oobb
+  color: ''
+  components:
+  - - objects:
+      - extra: toner_cartridge_funnel
+        h: 75
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r1: 112.5
+        r2: 25.0
+        shape: cylinder
+        type: positive
+        wall_thickness: 2
+        width: 0
+      - extra: toner_cartridge_funnel
+        h: 75
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r1: 110.5
+        r2: 23.0
+        shape: cylinder
+        type: negative
+        wall_thickness: 2
+        width: 0
+      pos:
+      - 0
+      - 0
+      - 0
+      rot:
+      - 0
+      - 0
+      - 0
+      type: rotation
+      typetype: p
+  - - objects:
+      - extra: toner_cartridge_funnel
+        h: 20
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r: 25.0
+        shape: cylinder
+        type: positive
+        wall_thickness: 2
+        width: 0
+      - extra: toner_cartridge_funnel
+        h: 20
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r: 23.0
+        shape: cylinder
+        type: negative
+        wall_thickness: 2
+        width: 0
+      pos:
+      - 0
+      - 0
+      - 75
+      rot:
+      - 0
+      - 0
+      - 0
+      type: rotation
+      typetype: p
+  components_objects:
+  - extra: toner_cartridge_funnel
+    filter: ''
+    funnel_bottom_radius: 25.0
+    funnel_extra: toner_cartridge_funnel
+    funnel_flare: 87.5
+    funnel_height: 75
+    funnel_height_bottom_tube: 20
+    funnel_wall_thickness: 2
+    h: 75
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_bolt_tool_funnel
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 0
+    r1: 112.5
+    r2: 25.0
+    save_type: all
+    shape: oobb_cylinder_hollow
+    thickness: 3
+    typ: all
+    type: p
+    wall_thickness: 2
+    width: 0
+  - extra: toner_cartridge_funnel
+    filter: ''
+    funnel_bottom_radius: 25.0
+    funnel_extra: toner_cartridge_funnel
+    funnel_flare: 87.5
+    funnel_height: 75
+    funnel_height_bottom_tube: 20
+    funnel_wall_thickness: 2
+    h: 20
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_bolt_tool_funnel
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 75
+    r: 25.0
+    save_type: all
+    shape: oobb_cylinder_hollow
+    thickness: 3
+    typ: all
+    type: p
+    wall_thickness: 2
+    width: 0
+  components_string:
+  - oobb_cylinder_hollow_shape_p_type_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_bolt_tool_funnel_oomp_color_25.0_funnel_bottom_radius_87.5_funnel_flare_75_funnel_height_20_funnel_height_bottom_tube_2_funnel_wall_thickness_toner_cartridge_funnel_funnel_extra_toner_cartridge_funnel_extra_112.5_r1_25.0_r2_2_wall_thickness_75_h
+  - oobb_cylinder_hollow_shape_p_type_0_0_75_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_bolt_tool_funnel_oomp_color_25.0_funnel_bottom_radius_87.5_funnel_flare_75_funnel_height_20_funnel_height_bottom_tube_2_funnel_wall_thickness_toner_cartridge_funnel_funnel_extra_toner_cartridge_funnel_extra_25.0_r_2_wall_thickness_20_h
+  description: oomlout bolt tool funnel funnel circle 0x0x3
+  description_extra: toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt_extra
+  description_main: 0_width_0_height_3_mm_depth
+  extra: toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt
+  folder: C:\gh\oomlout_oobb_version_4_generated_parts\parts\oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_toner_cartridge_funnel_funnel_extra87d5_flare_25_b_rad_75_h_2_wt_20_hbt_extra
+  height: 0
+  height_mm: -1
+  id: oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_toner_cartridge_funnel_funnel_extra87d5_flare_25_b_rad_75_h_2_wt_20_hbt_extra
+  link_main: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/navigation_oomp/oobb/part/oomlout_bolt_tool_funnel_funnel_circle/0_width_0_height_3_mm_depth/toner_cartridge_funnel_funnel_extra87.5_flare_25.0_b_rad_75_h_2_wt_20_hbt_extra/part
+  link_redirect: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/parts/oobb_oomlout_bolt_tool_funnel_funnel_circle_00_00_03_ex_toner_cartridge_funnel_funnel_extra87d5_flare_25d0_b_rad_75_h_2_wt_20_hbt
+  manufacturer: ''
+  name: Oobb Part Oomlout Bolt Tool Funnel Funnel Circle 0 Width 0 Height 3 mm Depth
+    Toner Cartridge Funnel Funnel Extra87D5 Flare 25 B Rad 75 H 2 Wt 20 Hbt Extra
+  name_short: Oomlout Bolt Tool Funnel Funnel Circle
+  part_number: ''
+  short_name: ''
+  size: oomlout_bolt_tool_funnel_funnel_circle
+  thickness: 3
+  thickness_mm: 3
+  type: part
+  width: 0
+  width_mm: -1
+type: github

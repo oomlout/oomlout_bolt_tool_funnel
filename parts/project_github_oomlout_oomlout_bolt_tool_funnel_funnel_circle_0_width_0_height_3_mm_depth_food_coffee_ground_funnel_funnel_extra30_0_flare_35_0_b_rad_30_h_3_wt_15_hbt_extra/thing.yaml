@@ -1,0 +1,223 @@
+classification: project
+color: oomlout_bolt_tool_funnel
+description_extra: food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt_extra
+description_main: funnel_circle_0_width_0_height_3_mm_depth
+full_rotations:
+- 0
+- 0
+- 0
+full_shift:
+- 0
+- 0
+- 0
+id: project_github_oomlout_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_food_coffee_ground_funnel_funnel_extra30_0_flare_35_0_b_rad_30_h_3_wt_15_hbt_extra
+id_oobb: oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_food_coffee_ground_funnel_funnel_extra30_flare_35_b_rad_30_h_3_wt_15_hbt_extra
+kwargs:
+  extra: food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt
+  filter: ''
+  funnel_bottom_radius: 35.0
+  funnel_extra: food_coffee_ground_funnel
+  funnel_flare: 30.0
+  funnel_height: 30
+  funnel_height_bottom_tube: 15
+  funnel_wall_thickness: 3
+  height: 0
+  modes:
+  - 3dpr
+  navigation: true
+  oomp_classification: project
+  oomp_color: oomlout_bolt_tool_funnel
+  oomp_description_extra: food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt_extra
+  oomp_description_main: funnel_circle_0_width_0_height_3_mm_depth
+  oomp_manufacturer: ''
+  oomp_mode: project
+  oomp_part_number: ''
+  oomp_run: true
+  oomp_size: oomlout
+  oomp_type: github
+  overwrite: true
+  thickness: 3
+  typ: all
+  type: oomlout_bolt_tool_funnel_funnel_circle
+  width: 0
+manufacturer: ''
+name: funnel_circle
+part_number: ''
+project_name: C:\gh\oomlout_bolt_tool_funnel
+size: oomlout
+thing:
+  classification: oobb
+  color: ''
+  components:
+  - - objects:
+      - extra: food_coffee_ground_funnel
+        h: 30
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r1: 65.0
+        r2: 35.0
+        shape: cylinder
+        type: positive
+        wall_thickness: 3
+        width: 0
+      - extra: food_coffee_ground_funnel
+        h: 30
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r1: 62.0
+        r2: 32.0
+        shape: cylinder
+        type: negative
+        wall_thickness: 3
+        width: 0
+      pos:
+      - 0
+      - 0
+      - 0
+      rot:
+      - 0
+      - 0
+      - 0
+      type: rotation
+      typetype: p
+  - - objects:
+      - extra: food_coffee_ground_funnel
+        h: 15
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r: 35.0
+        shape: cylinder
+        type: positive
+        wall_thickness: 3
+        width: 0
+      - extra: food_coffee_ground_funnel
+        h: 15
+        height: 0
+        pos:
+        - 0
+        - 0
+        - 0
+        r: 32.0
+        shape: cylinder
+        type: negative
+        wall_thickness: 3
+        width: 0
+      pos:
+      - 0
+      - 0
+      - 30
+      rot:
+      - 0
+      - 0
+      - 0
+      type: rotation
+      typetype: p
+  components_objects:
+  - extra: food_coffee_ground_funnel
+    filter: ''
+    funnel_bottom_radius: 35.0
+    funnel_extra: food_coffee_ground_funnel
+    funnel_flare: 30.0
+    funnel_height: 30
+    funnel_height_bottom_tube: 15
+    funnel_wall_thickness: 3
+    h: 30
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_bolt_tool_funnel
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 0
+    r1: 65.0
+    r2: 35.0
+    save_type: all
+    shape: oobb_cylinder_hollow
+    thickness: 3
+    typ: all
+    type: p
+    wall_thickness: 3
+    width: 0
+  - extra: food_coffee_ground_funnel
+    filter: ''
+    funnel_bottom_radius: 35.0
+    funnel_extra: food_coffee_ground_funnel
+    funnel_flare: 30.0
+    funnel_height: 30
+    funnel_height_bottom_tube: 15
+    funnel_wall_thickness: 3
+    h: 15
+    height: 0
+    modes:
+    - 3dpr
+    navigation: true
+    oomp_classification: project
+    oomp_color: oomlout_bolt_tool_funnel
+    oomp_description_extra: ''
+    oomp_description_main: ''
+    oomp_manufacturer: ''
+    oomp_mode: project
+    oomp_part_number: ''
+    oomp_run: true
+    oomp_size: oomlout
+    oomp_type: github
+    overwrite: true
+    pos:
+    - 0
+    - 0
+    - 30
+    r: 35.0
+    save_type: all
+    shape: oobb_cylinder_hollow
+    thickness: 3
+    typ: all
+    type: p
+    wall_thickness: 3
+    width: 0
+  components_string:
+  - oobb_cylinder_hollow_shape_p_type_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_bolt_tool_funnel_oomp_color_35.0_funnel_bottom_radius_30.0_funnel_flare_30_funnel_height_15_funnel_height_bottom_tube_3_funnel_wall_thickness_food_coffee_ground_funnel_funnel_extra_food_coffee_ground_funnel_extra_65.0_r1_35.0_r2_3_wall_thickness_30_h
+  - oobb_cylinder_hollow_shape_p_type_0_0_30_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_0_width_0_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_bolt_tool_funnel_oomp_color_35.0_funnel_bottom_radius_30.0_funnel_flare_30_funnel_height_15_funnel_height_bottom_tube_3_funnel_wall_thickness_food_coffee_ground_funnel_funnel_extra_food_coffee_ground_funnel_extra_35.0_r_3_wall_thickness_15_h
+  description: oomlout bolt tool funnel funnel circle 0x0x3
+  description_extra: food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt_extra
+  description_main: 0_width_0_height_3_mm_depth
+  extra: food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt
+  folder: C:\gh\oomlout_oobb_version_4_generated_parts\parts\oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_food_coffee_ground_funnel_funnel_extra30_flare_35_b_rad_30_h_3_wt_15_hbt_extra
+  height: 0
+  height_mm: -1
+  id: oobb_part_oomlout_bolt_tool_funnel_funnel_circle_0_width_0_height_3_mm_depth_food_coffee_ground_funnel_funnel_extra30_flare_35_b_rad_30_h_3_wt_15_hbt_extra
+  link_main: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/navigation_oomp/oobb/part/oomlout_bolt_tool_funnel_funnel_circle/0_width_0_height_3_mm_depth/food_coffee_ground_funnel_funnel_extra30.0_flare_35.0_b_rad_30_h_3_wt_15_hbt_extra/part
+  link_redirect: https://github.com/oomlout/oomlout_oobb_version_4_generated_parts/tree/main/parts/oobb_oomlout_bolt_tool_funnel_funnel_circle_00_00_03_ex_food_coffee_ground_funnel_funnel_extra30d0_flare_35d0_b_rad_30_h_3_wt_15_hbt
+  manufacturer: ''
+  name: Oobb Part Oomlout Bolt Tool Funnel Funnel Circle 0 Width 0 Height 3 mm Depth
+    Food Coffee Ground Funnel Funnel Extra30 Flare 35 B Rad 30 H 3 Wt 15 Hbt Extra
+  name_short: Oomlout Bolt Tool Funnel Funnel Circle
+  part_number: ''
+  short_name: ''
+  size: oomlout_bolt_tool_funnel_funnel_circle
+  thickness: 3
+  thickness_mm: 3
+  type: part
+  width: 0
+  width_mm: -1
+type: github
